@@ -308,10 +308,10 @@ class Firework {
     }
     
     createParticles() {
-        const particleCount = 120; // More particles per explosion
+        const particleCount = 50; // Reduced for mobile performance
         for (let i = 0; i < particleCount; i++) {
             const angle = (Math.PI * 2 / particleCount) * i;
-            const speed = Math.random() * 8 + 3; // Faster particles
+            const speed = Math.random() * 6 + 2;
             particles.push(new Particle(
                 this.tx,
                 this.ty,
@@ -322,7 +322,7 @@ class Firework {
         }
         
         // Play cracker sound for each explosion
-        if (Math.random() > 0.5) { // More frequent sounds
+        if (Math.random() > 0.7) {
             playSound(crackerSound, 0.3);
         }
     }
@@ -385,22 +385,22 @@ class Particle {
 
 function startFireworks() {
     // Create initial burst of fireworks
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 5; i++) {
         setTimeout(() => {
             launchFirework();
-        }, i * 200);
+        }, i * 300);
     }
     
-    // Infinite continuous fireworks
+    // Reduced continuous fireworks for mobile performance
     setInterval(() => {
-        // Launch 2-4 fireworks at random intervals
-        const count = Math.floor(Math.random() * 3) + 2;
+        // Launch 1-2 fireworks at random intervals
+        const count = Math.floor(Math.random() * 2) + 1;
         for (let i = 0; i < count; i++) {
             setTimeout(() => {
                 launchFirework();
-            }, i * 100);
+            }, i * 150);
         }
-    }, 800);
+    }, 1200);
     
     // Start animation loop
     animateFireworks();
