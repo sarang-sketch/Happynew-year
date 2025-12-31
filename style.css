@@ -1039,3 +1039,51 @@ body {
         font-size: 14px !important;
     }
 }
+
+/* Enhanced Mobile Icon Visibility */
+@media (max-width: 768px) {
+    .control-btn {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1.5rem !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        border: 2px solid rgba(255, 215, 0, 0.5) !important;
+    }
+    
+    .btn-emoji {
+        font-size: 1.5rem !important;
+        display: inline-block !important;
+    }
+    
+    .social-btn .btn-emoji {
+        font-size: 1.8rem !important;
+        min-width: 30px !important;
+        text-align: center !important;
+    }
+    
+    .emoji-large {
+        font-size: 2rem !important;
+    }
+    
+    .btn-icon {
+        font-size: 1.5rem !important;
+    }
+    
+    .sound-on, .sound-off {
+        font-size: 1.5rem !important;
+        line-height: 1 !important;
+    }
+}
+
+/* Fix emoji rendering on mobile */
+.btn-emoji,
+.emoji-large,
+.btn-icon,
+.sound-on,
+.sound-off,
+.heart,
+.emoji {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", sans-serif !important;
+    font-style: normal !important;
+    -webkit-font-smoothing: antialiased !important;
+}
