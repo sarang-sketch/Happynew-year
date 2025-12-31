@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026 🎆 | From Sarang</title>
+    <meta name="description"
+        content="Celebrate New Year 2026 with a personalized fireworks celebration! Enter your name and watch it light up the sky.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Stars Background -->
+    <div class="stars-container" id="starsContainer"></div>
+
+    <!-- Entry Screen -->
+    <section class="entry-screen" id="entryScreen">
+        <div class="entry-content">
+            <div class="entry-glow"></div>
+            <h1 class="entry-title">
+                <span class="emoji">🎆</span>
+                New Year 2026
+                <span class="emoji">🎆</span>
+            </h1>
+            <p class="entry-subtitle">Enter your name to begin the celebration</p>
+            <div class="input-container">
+                <input type="text" id="nameInput" class="name-input" placeholder="Your Name" maxlength="15"
+                    autocomplete="off">
+                <button class="start-btn" id="startBtn">
+                    <span class="btn-icon">🔥</span>
+                    Start Celebration
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Celebration Scene -->
+    <section class="celebration-scene hidden" id="celebrationScene">
+        <!-- Ground -->
+        <div class="ground"></div>
+
+        <!-- Child Character -->
+        <div class="child-container" id="childContainer">
+            <svg class="child-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Child Body Silhouette -->
+                <defs>
+                    <linearGradient id="childGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2a1f4e" />
+                        <stop offset="100%" style="stop-color:#1a1035" />
+                    </linearGradient>
+                    <filter id="childGlow">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                <!-- Head -->
+                <ellipse cx="100" cy="60" rx="35" ry="40" fill="url(#childGradient)" filter="url(#childGlow)" />
+                <!-- Hair -->
+                <path d="M65 50 Q70 20 100 25 Q130 20 135 50" fill="#1a1035" stroke="none" />
+                <!-- Body -->
+                <ellipse cx="100" cy="140" rx="40" ry="50" fill="url(#childGradient)" filter="url(#childGlow)" />
+                <!-- Sitting Legs -->
+                <ellipse cx="70" cy="200" rx="25" ry="15" fill="url(#childGradient)" />
+                <ellipse cx="130" cy="200" rx="25" ry="15" fill="url(#childGradient)" />
+                <!-- Arms reaching forward -->
+                <ellipse cx="55" cy="150" rx="12" ry="25" fill="url(#childGradient)" transform="rotate(-30 55 150)" />
+                <ellipse cx="145" cy="150" rx="12" ry="25" fill="url(#childGradient)" transform="rotate(30 145 150)" />
+                <!-- Hands -->
+                <circle cx="45" cy="170" r="10" fill="url(#childGradient)" />
+                <circle cx="155" cy="170" r="10" fill="url(#childGradient)" />
+            </svg>
+
+            <!-- Rocket -->
+            <div class="rocket" id="rocket">
+                <div class="rocket-body">
+                    <div class="rocket-tip"></div>
+                    <div class="rocket-middle"></div>
+                    <div class="rocket-fins">
+                        <div class="fin left"></div>
+                        <div class="fin right"></div>
+                    </div>
+                </div>
+                <div class="rocket-fuse" id="rocketFuse">
+                    <div class="fuse-line"></div>
+                    <div class="spark" id="spark"></div>
+                </div>
+                <div class="rocket-trail" id="rocketTrail"></div>
+            </div>
+        </div>
+
+        <!-- Fireworks Canvas -->
+        <canvas id="fireworksCanvas"></canvas>
+
+        <!-- Message Display -->
+        <div class="message-container hidden" id="messageContainer">
+            <div class="name-display" id="nameDisplay"></div>
+            <div class="main-message">
+                <span class="emoji-large">🎉</span>
+                <h2 class="happy-new-year">HAPPY NEW YEAR 2026</h2>
+                <span class="emoji-large">🎉</span>
+            </div>
+            <p class="from-sarang">FROM SARANG <span class="heart">❤️</span></p>
+            <p class="final-line hidden" id="finalLine">Make this year unforgettable.</p>
+        </div>
+
+        <!-- Confetti Container -->
+        <div class="confetti-container" id="confettiContainer"></div>
+    </section>
+
+    <!-- Social Card -->
+    <div class="social-card hidden" id="socialCard">
+        <p class="connect-heading">✨ Connect with Sarang ✨</p>
+        <div class="social-buttons">
+            <a href="https://github.com/sarang-sketch/" target="_blank" rel="noopener noreferrer"
+                class="social-btn github">
+                <span class="btn-emoji">🐙</span>
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/sarang-kadam-sketch" target="_blank" rel="noopener noreferrer"
+                class="social-btn linkedin">
+                <span class="btn-emoji">💼</span>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://www.instagram.com/sarangkadam_?igsh=dWo2bnF1MnJtY2Ni" target="_blank"
+                rel="noopener noreferrer" class="social-btn instagram">
+                <span class="btn-emoji">📸</span>
+                <span>Instagram</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls hidden" id="controls">
+        <button class="control-btn" id="soundToggle" title="Toggle Sound">
+            <span class="sound-on">🔊</span>
+            <span class="sound-off hidden">🔇</span>
+        </button>
+        <button class="control-btn" id="replayBtn" title="Replay">
+            🔁
+        </button>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="crackerSound" preload="auto">
+        <source src="assets/cracker.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="rocketSound" preload="auto">
+        <source src="assets/rocket-launch.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="crowdSound" preload="auto">
+        <source src="assets/crowd-happy-new-year.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="bgMusic" loop preload="auto">
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
